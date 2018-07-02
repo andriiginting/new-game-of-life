@@ -117,5 +117,4 @@ describe "cell" do
     expect(arr_block).to eq(test_cell.grid)
   end
 
-  
 end
