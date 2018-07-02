@@ -13,7 +13,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
 
 ## Installation
 ```
-$ ruby lib/conways_game_of_life.rb
+$ ruby lib/conways_game_of_life.rb [input_file.txt]
 ```
 
 ## Running the Tests
@@ -23,3 +23,9 @@ $ rspec --format documentation
 
 ## Author
 Andriiginting
+
+## Input File
+- test_input_blok.txt
+- test_input_file.txt
+- test_input_pentadecathlon.txt
+- test_input_toad.txt
