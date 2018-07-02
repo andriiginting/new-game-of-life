@@ -16,7 +16,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
 $ ruby lib/conways_game_of_life.rb [input_file.txt]
 ```
 
-## Running the Tests
+## Running the Specs
 ```
 $ rspec --format documentation
 ```
