@@ -54,6 +54,11 @@ module GameOfLife
     end
 
     def create_pattern(file_name)
+    if !file_name.include? ".txt"
+      return nil
+    elsif file_name == nil
+      return nil
+    end
       File.open(file_name, "r") do |input_file|
         input_file.each_line do |line|
             chars = line.split(",").map(&:strip).map(&:to_i)

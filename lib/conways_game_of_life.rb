@@ -6,14 +6,13 @@ module GameOfLife
       conway =Cell.new
       filename = "./"
       filename += ARGV[0]
-      conway.create_pattern(filename)
+        conway.create_pattern(filename)
        for i in 0..100 do
-      #loop do to create infite looping
           conway.generate_next_pattern
           system "clear"
           print_next_generation(conway.grid)
           sleep(0.5)
-      end   
+      end  
     end
 
     def print_next_generation(block_array)
@@ -35,4 +34,6 @@ module GameOfLife
     puts ""
     end
 end
+
 run_game()
+
