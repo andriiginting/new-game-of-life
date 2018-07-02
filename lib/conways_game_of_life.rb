@@ -1,4 +1,5 @@
 require './lib/cell.rb'
+include GameOfLife
 
 module GameOfLife
     def run_game
@@ -23,7 +24,7 @@ module GameOfLife
         if block_array[i][j] == 0
           cells[i][j] = " "
         else
-          cells[i][j] = "x"
+          cells[i][j] = "\u25A0"
         end 
       end
     end
@@ -34,6 +35,4 @@ module GameOfLife
     puts ""
     end
 end
-
-include GameOfLife
 run_game()
