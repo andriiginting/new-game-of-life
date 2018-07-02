@@ -1,12 +1,18 @@
 require './lib/cell.rb'
 
 module GameOfLife
-  class GameOfLife
     def run_game
-    conway =Cell.new
-    filename = "./"
-    filename += ARGV[0]
-    conway.create_pattern(filename)      
+      conway =Cell.new
+      filename = "./"
+      filename += ARGV[0]
+      conway.create_pattern(filename)
+       for i in 0..100 do
+      #loop do to create infite looping
+          conway.generate_next_pattern
+          system "clear"
+          print_next_generation(conway.grid)
+          sleep(0.5)
+      end   
     end
 
     def print_next_generation(block_array)
@@ -27,6 +33,7 @@ module GameOfLife
     end
     puts ""
     end
-
-  end
 end
+
+include GameOfLife
+run_game()
