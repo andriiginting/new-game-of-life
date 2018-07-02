@@ -65,6 +65,48 @@ module GameOfLife
         end
       end
     end
+
+    def reproduce(row_index, col_index)
+      min_row = minimal_row(row_index)
+      max_row = maximum_row(row_index)
+      min_col = minimal_column(col_index)
+      max_col = maximum_column(col_index)
+      result = calculate_neighbor(min_row, max_row, min_col, max_col, row_index, col_index)
+  
+        if result == 3
+          return 1
+        else 
+          return 0
+        end
+    end
+
+    def live_through(row_index, col_index)
+      min_row = minimal_row(row_index)
+      max_row = maximum_row(row_index)
+      min_col = minimal_column(col_index)
+      max_col = maximum_column(col_index)
+      result = calculate_neighbor(min_row, max_row, min_col, max_col, row_index, col_index)
+
+      if result > 3 || result < 2
+        return 0
+      else 
+        return 1
+      end
+    end
+
+    def generate_next_pattern
+      next_generation = Array.new(@grid.length) {Array.new(@grid[0].length)}
+      for i in 0..grid.length - 1  do
+        for j in 0..grid[0].length - 1  do
+          if @grid[i][j] == 1
+            next_generation[i][j] = live_through(i, j)
+          else 
+            next_generation[i][j] = reproduce(i, j)
+          end       
+        end
+      end
+        @grid = next_generation
+    end
     
   end
 end
