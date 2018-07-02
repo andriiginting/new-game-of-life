@@ -2,6 +2,7 @@ module GameOfLife
 
   class Cell
     attr_reader :grid 
+
     def initialize
       @grid = Array.new
     end
@@ -33,6 +34,15 @@ module GameOfLife
       return min
     end
 
+    def maximum_row(row_index)
+      if row_index + 1 < grid.length
+        max = row_index + 1
+      else
+        max = row_index
+      end
+      return max
+    end
+
     def calculate_neighbor(min_row, max_row, min_col, max_col, row_index, col_index)
       sum = 0
       for i in min_row..max_row 
@@ -43,6 +53,5 @@ module GameOfLife
 
       return sum - grid[row_index][col_index]
     end
-    
   end
 end

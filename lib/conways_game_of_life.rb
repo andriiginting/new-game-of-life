@@ -4,5 +4,4 @@ module GameOfLife
     
   end
   
-  
 end
