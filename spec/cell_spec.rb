@@ -76,5 +76,46 @@ describe "cell" do
 
     expect(3).to eq(test_cell.calculate_neighbor(0, 4, 0, 4, 3, 3))
   end
+  it "can check pattern blinker that created " do
+    test_cell = GameOfLife::Cell.new
+    file_name = "./test_input_file.txt"
+    test_cell.create_pattern(file_name)
+
+    arr_blinker = [ [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0] ]
+     
+    expect(arr_blinker).to eq(test_cell.grid)
+  end
+
+  it "can check pattern block that created " do
+    test_cell = GameOfLife::Cell.new
+    file_name = "./test_input_blok.txt"
+    test_cell.create_pattern(file_name)
+
+    arr_block = [ [0, 0, 0, 0],
+            [0, 1, 1, 0],
+            [0, 1, 1, 0],
+            [0, 0, 0, 0]]
+     print arr_block
+    expect(arr_block).to eq(test_cell.grid)
+  end
+
+  it "can generate next pattern block that created " do
+    test_cell = GameOfLife::Cell.new
+    file_name = "./test_input_blok.txt"
+    test_cell.create_pattern(file_name)
+
+    arr_block = [ [0, 0, 0, 0],
+            [0, 1, 1, 0],
+            [0, 1, 1, 0],
+            [0, 0, 0, 0]]
+     test_cell.generate_next_pattern
+     print test_cell.generate_next_pattern
+    expect(arr_block).to eq(test_cell.grid)
+  end
+
   
 end
