@@ -4,9 +4,18 @@ include GameOfLife
 module GameOfLife
     def run_game
       conway =Cell.new
+
+      if  ARGV.empty?
+        puts "There is no argument"
+        exit
+      elsif !ARGV[0].include? ".txt"
+        puts "Argument format invalid"
+        exit
+      end
+
       filename = "./"
       filename += ARGV[0]
-        conway.create_pattern(filename)
+      conway.create_pattern(filename)
        for i in 0..100 do
           conway.generate_next_pattern
           system "clear"
