@@ -16,7 +16,7 @@ module GameOfLife
       filename = "./"
       filename += ARGV[0]
       conway.create_pattern(filename)
-       for i in 0..100 do
+       loop do
           conway.generate_next_pattern
           system "clear"
           print_next_generation(conway.grid)

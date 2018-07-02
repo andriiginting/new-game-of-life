@@ -59,7 +59,7 @@ describe "cell" do
       expect(0).to eq(test_cell.minimal_row(0))
   end
 
-  it "can calculate neighbor " do
+  it "can calculate neighbor based on rules" do
     test_cell = GameOfLife::Cell.new
     test_cell.grid
     (0...5).each do |row|
