@@ -50,8 +50,21 @@ module GameOfLife
           sum += grid[i][j]
         end
       end
-
       return sum - grid[row_index][col_index]
     end
+
+    def create_pattern(file_name)
+      File.open(file_name, "r") do |input_file|
+        input_file.each_line do |line|
+            chars = line.split(",").map(&:strip).map(&:to_i)
+            row = Array.new
+            for i in 0..chars.length - 1 
+                row.push(chars[i])
+            end
+            @grid.push(row)
+        end
+      end
+    end
+    
   end
 end
