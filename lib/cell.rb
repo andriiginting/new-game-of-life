@@ -1,8 +1,6 @@
 module GameOfLife
-
-  class GameOfLife
+  class Cell
     
   end
-  
   
 end
